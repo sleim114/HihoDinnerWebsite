@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HiHo Menu</title>
+    <link rel="stylesheet" href="styles_menu.css">
+    <script src="Script_menu.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.2/papaparse.min.js"></script>
+</head>
+<body>
+<header>
+    <div class="logo">
+        <a href="Home.html">
+            <img src="/Images/Logo.png" alt="Restaurant Logo">
+        </a>
+    </div>
+    <nav>
+        <button class="nav-toggle" id="nav-toggle">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
+        <ul id="nav-menu">
+            <li><a href="Home.html">Home</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="Catering.html">Catering</a></li>
+            <li><a href="Contact.html">Contact</a></li>
+        </ul>
+    </nav>
+</header>
+<br><br><br>
+<section class="menu" id="menu">
+    <!-- Dropdown Category Selector -->
+    <div class="category-dropdown">
+        <div class="dropdown-header" id="dropdown-header">
+            <span id="selected-category">Select Category</span>
+        </div>
+        <div id="dropdown-menu" class="dropdown-menu">
+            <!-- Categories will be appended here dynamically -->
+        </div>
+    </div>
+    <div class="menu-container">
+        <div id="menu-content" class="menu-grid">
+            <!-- JavaScript will populate this dynamically -->
+        </div>
+    </div>
+</section>
+</body>
+</html>

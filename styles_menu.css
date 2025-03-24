@@ -1,0 +1,254 @@
+/* Global Reset and Box Sizing */
+html, body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    font-family: Arial, sans-serif;
+    background: #ffffff;
+    box-sizing: border-box;
+}
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+
+/* Header & Logo */
+header {
+    background-color: #000;
+    color: white;
+    padding: 20px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    transition: all 0.3s ease;
+    z-index: 1000;
+}
+.logo {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.logo img {
+    padding-top: 10px;
+    max-height: 70px;
+    transition: all 0.3s ease;
+}
+
+/* Navigation */
+nav {
+    flex-grow: 1;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding-right: 20px;
+    position: relative;
+    transition: all 0.3s ease;
+}
+nav ul {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+nav ul li {
+    margin-left: 20px;
+}
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+}
+nav ul li a:hover {
+    color: #ff0000;
+}
+
+/* Hamburger Toggle (Hidden on Desktop) */
+.nav-toggle {
+    display: none;
+}
+.nav-toggle .bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    margin: 5px;
+    transition: 0.4s;
+}
+
+/* Responsive Navigation for Mobile */
+@media (max-width: 768px) {
+    .nav-toggle {
+        display: block;
+        background: none;
+        border: none;
+        cursor: pointer;
+        outline: none;
+    }
+    nav ul {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background: #000;
+        position: absolute;
+        top: 100%;
+        right: 0;
+    }
+    nav.active ul {
+        display: flex;
+    }
+    nav ul li {
+        margin: 0;
+        text-align: center;
+        padding: 10px 0;
+    }
+}
+
+/* Category Dropdown */
+.category-dropdown {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 20px;
+}
+.dropdown-header {
+    cursor: pointer;
+    border-top: 1px solid #000;
+    border-bottom: 1px solid #000;
+    padding: 10px 0;
+    background: none;
+}
+#selected-category {
+    font-size: 18px;
+    font-weight: bold;
+}
+.dropdown-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    overflow-y: auto;
+    display: none;
+    z-index: 2000;
+    padding-top: 60px;
+}
+.dropdown-item {
+    padding: 15px;
+    font-size: 18px;
+    cursor: pointer;
+}
+.dropdown-item:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+/* Menu Section */
+.menu {
+    text-align: center;
+    padding: 40px 20px;
+}
+.menu-text {
+    text-align: left;
+}
+
+/* Menu Container */
+.menu-container {
+    width: 100%;
+    margin: 0;
+    padding: 25px;
+    background: #f8f8f8;
+}
+
+/* Menu Grid & Items */
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+}
+.menu-item {
+    background-color: #FFFAFA;
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 8px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+}
+.menu-item:hover {
+    background: none;
+    color: inherit;
+    border-color: #ddd;
+}
+.menu-item .name {
+    font-weight: bold;
+    font-size: 18px;
+}
+.menu-item .description {
+    font-size: 14px;
+    color: #666;
+    margin-top: 5px;
+}
+.menu-item .price {
+    font-weight: bold;
+    font-size: 18px;
+    text-align: right;
+    margin-top: 10px;
+}
+.menu-item-image {
+    max-width: 100px;
+    height: auto;
+    margin-top: 10px;
+    align-self: flex-end;
+    margin-right: 300px;
+}
+
+/* Options & Pricing */
+.options-list {
+    list-style: none;
+    padding: 0;
+    margin: 5px 0 0;
+}
+.options-list li {
+    font-size: 16px;
+    color: #000000;
+    padding: 2px 0;
+}
+.single-price {
+    font-size: 18px;
+    font-weight: bold;
+    text-align: right;
+}
+
+/* Responsive Adjustments for Mobile */
+@media (max-width: 768px) {
+    /* Adjust Menu Container */
+    .menu-container {
+        padding: 0;
+        margin: 0;
+        width: 100%;
+        justify-content: left;
+    }
+    /* One-column Grid & Stretch Items */
+    .menu-grid {
+        grid-template-columns: 1fr;
+        justify-items: stretch;
+    }
+    .menu-item {
+        width: 100%;
+        margin: 0;
+        text-align: left;
+    }
+    /* Remove extra margin on images */
+    .menu-item-image {
+        margin-right: 0;
+    }
+    /* Adjust font sizes */
+    #selected-category,
+    .menu-item .name,
+    .menu-item .price {
+        font-size: 16px;
+    }
+}

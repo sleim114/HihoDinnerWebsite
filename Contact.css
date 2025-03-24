@@ -1,0 +1,228 @@
+/* ==================================================
+   Global Reset and Box Sizing
+   ================================================== */
+html, body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    font-family: Arial, sans-serif;
+    background: #ffffff;
+    box-sizing: border-box;
+}
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+
+/* ==================================================
+   Header & Navigation
+   ================================================== */
+/* Header & Logo */
+header {
+    background-color: #000;
+    color: #fff;
+    padding: 20px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    transition: all 0.3s ease;
+    z-index: 1000;
+}
+.logo {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.logo img {
+    padding-top: 10px;
+    max-height: 70px;
+    transition: all 0.3s ease;
+}
+
+/* Navigation */
+nav {
+    flex-grow: 1;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding-right: 20px;
+    position: relative;
+    transition: all 0.3s ease;
+}
+nav ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+nav ul li {
+    margin-left: 20px;
+}
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+}
+nav ul li a:hover {
+    color: #ff0000;
+}
+
+/* Hamburger Toggle */
+.nav-toggle {
+    display: none;
+}
+.nav-toggle .bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: #fff;
+    margin: 5px;
+    transition: 0.4s;
+}
+
+/* ==================================================
+   Main Content & Contact Layout
+   ================================================== */
+main {
+    width: 100%;
+    margin-top: 120px;
+    padding: 20px;
+}
+
+/* Contact Page Locations */
+#location1,
+#location2,
+#location3 {
+    background-color: #f8f8f8;
+    border: 1px solid #ccc;
+    padding: 20px;
+    margin-bottom: 40px;
+}
+
+/* Contact Layout */
+.location-container {
+    display: flex;
+    flex-wrap: wrap; /* allows items to wrap to the next line */
+    width: calc(100% - 40px);
+    /* Instead of margin: 0 auto 40px, do something like: */
+    margin: 0 20px 40px 20px; /* adds a little space on left and right, but not centered */
+    justify-content: flex-start;
+    gap: 150px;
+}
+
+.contact-info {
+    flex: 0 0 200px;
+    max-width: 250px;
+    display: flex;
+    flex-direction: column;
+    font-size: 18px;
+}
+
+.business-hours {
+    margin-top: 20px;
+    font-size: 16px;
+    text-align: left;
+}
+.business-hours ul li {
+    white-space: nowrap;  /* keeps each line from wrapping */
+}
+
+.location-image {
+    flex: 0 0 auto;
+    max-width: 400px;
+}
+.location-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.map {
+    max-width: 600px;
+}
+.map iframe {
+    width: 450px;
+    height: 350px; /* or another fixed height */
+    border: 0;
+    display: block;
+}
+
+/* ==================================================
+   Responsive Styles (max-width: 768px)
+   ================================================== */
+@media (max-width: 768px) {
+    /* Navigation Adjustments */
+    .nav-toggle {
+        display: block;
+        background: none;
+        border: none;
+        cursor: pointer;
+        outline: none;
+    }
+    nav ul {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background: #000;
+        position: absolute;
+        top: 100%;
+        right: 0;
+    }
+    nav.active ul {
+        display: flex;
+    }
+    nav ul li {
+        margin: 0;
+        text-align: center;
+        padding: 10px 0;
+    }
+
+    /* Menu Adjustments */
+    .menu-container {
+        padding: 0;
+        margin: 0;
+        width: 100%;
+        justify-content: left;
+    }
+    .menu-grid {
+        grid-template-columns: 1fr;
+        justify-items: stretch;
+    }
+    .menu-item {
+        width: 100%;
+        margin: 0;
+        text-align: left;
+    }
+    .menu-item-image {
+        margin-right: 0;
+    }
+    #selected-category,
+    .menu-item .name,
+    .menu-item .price {
+        font-size: 16px;
+    }
+
+    /* Contact Layout Adjustments */
+    .location-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        width: 100%;
+        padding: 0 10px;
+        margin-bottom: 40px;
+    }
+    .contact-info,
+    .location-image,
+    .map {
+        width: 100%;
+        box-sizing: border-box;
+    }
+    .map iframe {
+        width: 100%;
+        height: 200px;
+    }
+}
